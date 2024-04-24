@@ -1,0 +1,341 @@
+:root {
+  --font-color: #ffffff;
+  --bg-color: #1a1832;
+  --font-gray: #e7e7e7;
+  --light-gray: #dadada;
+  --rating-font: #b1b9d8;
+  --rating-border: #2e3650;
+  --rating-bg: #1a2036;
+  --violet: #7a58f4;
+  --error-color: #c51f1f;
+  --success-color: #279627;
+  --inter: "Inter", sans-serif;
+  --merriweather: "Merriweather", serif;
+}
+
+/* merriweather-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Merriweather";
+  font-style: normal;
+  font-weight: 400;
+  src: url("fonts/merriweather-v30-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* merriweather-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Merriweather";
+  font-style: normal;
+  font-weight: 700;
+  src: url("fonts/merriweather-v30-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* inter-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  src: url("fonts/inter-v13-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* inter-500 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  src: url("fonts/inter-v13-latin-500.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  font-size: 14px;
+}
+
+body {
+  font-family: var(--merriweather);
+  margin: 0;
+  padding: 0;
+  background-color: #d0cbf3;
+  height: 100%;
+  color: var(--font-color);
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.button {
+  font-family: var(--inter);
+  font-weight: 500;
+  font-size: 16px;
+  background-color: var(--bg-color);
+  border: 1px solid var(--violet);
+  border-radius: 5px;
+  color: var(--font-color);
+  padding: 12px 45px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button--accent {
+  background-color: var(--violet);
+  transition: all 0.3s ease;
+}
+
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--bg-color);
+  border-radius: 20px;
+  padding: 72px 52px 38px 52px;
+  width: 100%;
+  max-width: 920px;
+  display: none;
+}
+
+.modal--active {
+  display: block;
+}
+
+.modal__title {
+  font-family: var(--merriweather);
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 138%;
+  text-align: center;
+  margin: 0 auto 64px;
+  max-width: 78%;
+}
+
+.modal__success-message,
+.modal__error-message {
+  display: none;
+  text-align: center;
+  font-family: var(--merriweather);
+  font-weight: 700;
+  font-size: 14px;
+  position: absolute;
+  width: 100%;
+  top: -24px;
+}
+
+.modal__success-message.visible,
+.modal__error-message.visible {
+  display: block;
+}
+
+.modal__success-message {
+  color: var(--success-color);
+}
+
+.modal__error-message {
+  color: var(--error-color);
+}
+
+.modal__rating-holder {
+  margin: 0 auto 50px;
+}
+
+.modal__button-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+.modal__button-close::before,
+.modal__button-close::after {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: 4px;
+  width: 26px;
+  height: 2px;
+  background-color: var(--font-color);
+  border-radius: 10px;
+}
+
+.modal__button-close::before {
+  transform: rotate(45deg);
+}
+
+.modal__button-close::after {
+  transform: rotate(-45deg);
+}
+
+.modal__button-holder {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal__form {
+  position: relative;
+}
+
+.rating {
+  padding-bottom: 30px;
+  position: relative;
+}
+
+.rating__stars {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 -12px;
+}
+
+.rating__star {
+  width: 60px;
+  height: 60px;
+  padding: 13px;
+  border-radius: 10px;
+  border: 1px solid var(--rating-border);
+  background-color: var(--rating-bg);
+  font-family: var(--inter);
+  font-weight: 400;
+  font-size: 28px;
+  color: var(--rating-font);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0 12px 12px;
+  -webkit-text-stroke: 2px var(--rating-border);
+  paint-order: stroke fill;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input:checked + .rating__star {
+  color: var(--rating-font);
+  border: 1px solid var(--rating-font);
+  -webkit-text-stroke: 1px var(--rating-font);
+}
+
+.rating__note {
+  font-family: var(--inter);
+  font-size: 14px;
+  color: var(--font-gray);
+  position: absolute;
+  bottom: 7px;
+}
+
+.rating__note--negative {
+  left: 0;
+}
+
+.rating__note--positive {
+  right: 0;
+}
+
+@media (hover: hover) {
+  .button:hover {
+    background-color: var(--violet);
+    transition: all 0.3s ease;
+  }
+  .button--accent:hover {
+    background-color: var(--bg-color);
+    transition: all 0.3s ease;
+  }
+
+  .rating__star:hover {
+    color: var(--rating-font);
+    transition: all 0.3s ease;
+    border: 1px solid var(--rating-font);
+    -webkit-text-stroke: 1px var(--rating-font);
+  }
+}
+
+@media (max-width: 1200px) {
+  .modal {
+    width: auto;
+  }
+
+  .modal__title {
+    max-width: none;
+    margin-bottom: 30px;
+  }
+
+  .modal__rating-holder {
+    max-width: 400px;
+    padding-top: 30px;
+    margin-bottom: 20px;
+  }
+
+  .rating__note--negative {
+    top: 0;
+    bottom: auto;
+  }
+}
+
+@media (max-width: 1000px) {
+  .rating__star {
+    width: 50px;
+    height: 50px;
+    padding: 8px;
+    font-size: 26px;
+    margin: 0 8px 8px;
+  }
+
+  .rating__stars {
+    margin: 0 -8px;
+  }
+
+  .modal__rating-holder {
+    max-width: 314px;
+  }
+}
+
+@media (max-width: 860px) {
+  .modal {
+    padding: 56px 18px 18px;
+  }
+  .modal__button-holder {
+    flex-direction: column;
+  }
+
+  .modal__button-holder .button:not(:last-child) {
+    margin-bottom: 12px;
+  }
+
+  .modal__title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 660px) {
+  .modal {
+    width: 96vw;
+  }
+}

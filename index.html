@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="src/style.css" />
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" href="src/assets/favicons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="src/assets/favicons/favicon-180.png">
+  <link rel="manifest" href="site.webmanifest">
+  <title>Feedback Modal Component - FrontendPro Challenge</title>
+</head>
+
+<body>
+
+  <div class="root">
+    <button type="button" class="button button--accent" id="modal-open-button">Leave Feedback</button>
+    <div class="modal">
+      <h1 class="modal__title">How likely are you to recommend FrontendPro to someone you know?</h1>
+      <form class="modal__form" id="modal-form" action="https://httpbin.org/post" method="post">
+        <span class="modal__success-message">Nice! Thanks for your feedback!</span>
+        <span class="modal__error-message">Please set rating before submitting</span>
+        <div class="modal__rating-holder rating">
+          <div class="rating__stars">
+            <input class="visually-hidden" type="radio" name="rating" value="1" id="rating-1" required><label
+              for="rating-1" class="rating__star">1</label>
+            <input class="visually-hidden" type="radio" name="rating" value="2" id="rating-2" required><label
+              for="rating-2" class="rating__star">2</label>
+            <input class="visually-hidden" type="radio" name="rating" value="3" id="rating-3" required><label
+              for="rating-3" class="rating__star">3</label>
+            <input class="visually-hidden" type="radio" name="rating" value="4" id="rating-4" required><label
+              for="rating-4" class="rating__star">4</label>
+            <input class="visually-hidden" type="radio" name="rating" value="5" id="rating-5" required><label
+              for="rating-5" class="rating__star">5</label>
+            <input class="visually-hidden" type="radio" name="rating" value="6" id="rating-6" required><label
+              for="rating-6" class="rating__star">6</label>
+            <input class="visually-hidden" type="radio" name="rating" value="7" id="rating-7" required><label
+              for="rating-7" class="rating__star">7</label>
+            <input class="visually-hidden" type="radio" name="rating" value="8" id="rating-8" required><label
+              for="rating-8" class="rating__star">8</label>
+            <input class="visually-hidden" type="radio" name="rating" value="9" id="rating-9" required><label
+              for="rating-9" class="rating__star">9</label>
+            <input class="visually-hidden" type="radio" name="rating" value="10" id="rating-10" required><label
+              for="rating-10" class="rating__star">10</label>
+          </div>
+          <span class="rating__note rating__note--negative">Not likely at all</span>
+          <span class="rating__note rating__note--positive">Extremely Likely</span>
+        </div>
+        <div class="modal__button-holder">
+          <button type="button" class="button" id="modal-cancel-button">Cancel</button>
+          <input type="submit" class="button button--accent" value="Submit">
+        </div>
+      </form>
+      <button type="button" class="modal__button-close" id="modal-close-button"></button>
+    </div>
+  </div>
+
+  <script src="src/script.js"></script>
+</body>
+
+</html>

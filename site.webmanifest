@@ -1,0 +1,8 @@
+{
+  "name": "",
+  "short_name": "",
+  "icons": [
+    { "src": "src/assets/favicons/favicon-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "src/assets/favicons/favicon-512.png", "type": "image/png", "sizes": "512x512" }
+  ]
+}
